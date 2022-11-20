@@ -39,7 +39,7 @@ class testUser extends TestCase{
     }
     public function testCheckPasswordConfirm(){
         $this->UserTestInstance->setPassword($this->password);
-        $this->asserTrue( $this->UserTestInstance->checkPassWordConfirm($this->UserTestInstance->getPassword(), $this->password_confirm ));
+        $this->assertTrue( $this->UserTestInstance->checkPassWordConfirm($this->UserTestInstance->getPassword(), $this->password_confirm ));
     }
 }
 ?>
