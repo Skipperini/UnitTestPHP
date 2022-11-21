@@ -10,6 +10,9 @@ class testUser extends TestCase{
     private $email='skippeiniap@gmail.com';
     private $password='0000';
     private $password_confirm='0000';
+    private $check_passwd='0010';
+    
+
      protected function setUp():void{
         $this->UserTestInstance=new User();
     }
@@ -35,11 +38,11 @@ class testUser extends TestCase{
     }
     public function testCheckPassword(){
         $this->UserTestInstance->setPassword($this->password);
-        $this->assertTrue( $this->UserTestInstance->checkPassWord($this->UserTestInstance->getPassword()));
+        $this->assertFalse($this->UserTestInstance->checkPassWord($this->check_passwd));
     }
     public function testCheckPasswordConfirm(){
         $this->UserTestInstance->setPassword($this->password);
-        $this->assertTrue( $this->UserTestInstance->checkPassWordConfirm($this->UserTestInstance->getPassword(), $this->password_confirm ));
+        $this->assertTrue($this->UserTestInstance->checkPassWordConfirm($this->UserTestInstance->getPassword(), $this->password_confirm));
     }
 }
 ?>
